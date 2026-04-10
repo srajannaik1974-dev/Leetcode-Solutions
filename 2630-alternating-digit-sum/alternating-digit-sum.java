@@ -8,12 +8,14 @@ class Solution {
             sign*=-1;
             n=n/10;
         
-     
-        }if(sign==-1){
+    
+        }
+        if(sign==-1){
             return sum;
         }else{
             return -sum;
-        }
     }
-        }
+    }
+}
+        
     
