@@ -14,9 +14,7 @@ class Solution {
             }
             int width=j-i;
            int area=height*width;
-           if(area>max){
-           max=area;
-           }
+           max=Math.max(area,max);
            if(arr[i]>arr[j])
            j--;
            else
