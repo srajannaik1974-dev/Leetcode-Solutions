@@ -1,9 +1,31 @@
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        int XOR=0;
+       
         int n=nums.length;
-        for(int i=0;i<n;i++){
-            XOR=XOR^nums[i];
-        }return XOR;
+        int low=0;
+        int high=n-1;
+        if(n==1) return nums[0];
+        if(nums[0]!=nums[1]) return nums[0];
+        if(nums[n-1]!=nums[n-2]) return nums[n-1];
+        
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(nums[mid]!=nums[mid-1] && nums[mid]!=nums[mid+1]){
+                return nums[mid];
+            }
+            int f=mid,s=mid;
+            if(nums[mid]==nums[mid-1]){
+                f=mid-1;
+            }else{
+                s=mid+1;
+            }
+            int left=f-low;
+            int right=high-s;
+            if(left%2!=0){
+                high=f-1;
+            }else{
+                low=s+1;
+            }
+        }return nums[low];
     }
 }
