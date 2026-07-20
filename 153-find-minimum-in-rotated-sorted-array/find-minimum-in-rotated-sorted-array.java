@@ -11,5 +11,5 @@ class Solution {
                 high=mid;
             }
         }return nums[low];
-}
+    }
 }
