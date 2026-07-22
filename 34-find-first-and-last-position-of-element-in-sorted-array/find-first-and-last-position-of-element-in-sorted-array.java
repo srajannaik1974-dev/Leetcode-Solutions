@@ -3,34 +3,39 @@ class Solution {
         int n=nums.length;
         int low=0;
         int high=n-1;
-        int arr[]=new int[2];
-        int index1=-1;
+        int first=-1;
+       
+        int[] arr=new int[2];
         while(low<=high){
             int mid=(low+high)/2;
             if(nums[mid]==target){
-            index1=mid;
-            high=mid-1;
+                first=mid;
+                high=mid-1;
+            }else if(nums[mid]<target){
+                 low=mid+1;
+            }else{
+                high=mid-1;
             }
-            else if(nums[mid]>target)
-            high=mid-1;
-            else
-            low=mid+1;
-        }arr[0]=index1;
+        } arr[0]=first;
+      
 
-         low=0;
+        low=0;
         high=n-1;
-        int index2=-1;
-        while(low<=high){
+         int last=-1;
+         
+           while(low<=high){
             int mid=(low+high)/2;
             if(nums[mid]==target){
-            index2=mid;
-            low=mid+1;
+                last=mid;
+                low=mid+1;
+            }else if(nums[mid]<target){
+                 low=mid+1;
+            }else{
+                high=mid-1;
             }
-            else if(nums[mid]>target)
-            high=mid-1;
-            else
-            low=mid+1;
-        }arr[1]=index2;
+        } arr[1]=last;
+         
         return arr;
-    }
+     }
+
 }
