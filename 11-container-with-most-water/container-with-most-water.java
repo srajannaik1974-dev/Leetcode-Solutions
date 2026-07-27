@@ -5,10 +5,11 @@ class Solution {
         int j=n-1;
         int max=0;
         while(i<j){
-            int l=Math.min(height[i],height[j]);
-            int w=j-i;
-            int area=l*w;
-            max=Math.max(area,max);
+            int len=Math.min(height[i],height[j]);
+            int width=j-i;
+            int area=len*width;
+            max=Math.max(max,area);
+
             if(height[i]<=height[j]){
                 i++;
             }else{
