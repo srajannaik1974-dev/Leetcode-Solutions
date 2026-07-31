@@ -5,6 +5,7 @@ class Solution {
         for(int i=n-1;i>=0;i--){
             if(digits[i]<9){
                 digits[i]=digits[i]+carry;
+                
                 return digits;
                
             }else {
@@ -13,8 +14,12 @@ class Solution {
             }
            
         }
+        if(carry==1){
          int arr[]=new int[n+1];
             arr[0]=1;
-         return arr;
+            return arr;
+       
+     
+        }return digits;
     }
 }
