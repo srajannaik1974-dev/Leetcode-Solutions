@@ -1,25 +1,20 @@
 class Solution {
-    public int[] plusOne(int[] arr) {
-        
-        int n=arr.length-1;
+    public int[] plusOne(int[] digits) {
+        int n=digits.length;
         int carry=1;
-        for(int i=n;i>=0;i--){
-            int sum=arr[i]+carry;
-            if(sum<10){
-
-                arr[i]=sum;
-                carry=0;
-            }else{
-                arr[i]=0;
-                carry=1;
+        for(int i=n-1;i>=0;i--){
+            if(digits[i]<9){
+                digits[i]=digits[i]+carry;
+                return digits;
+               
+            }else {
+                digits[i]=0;
+               
             }
+           
         }
-             if(carry==1){
-                int [] result=new int [arr.length+1];
-                result[0]=1;
-                return result;
-            }return arr;
+         int arr[]=new int[n+1];
+            arr[0]=1;
+         return arr;
     }
-       
-    
 }
