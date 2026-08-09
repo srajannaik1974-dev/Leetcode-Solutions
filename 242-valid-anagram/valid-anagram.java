@@ -1,18 +1,15 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        HashMap<Character,Integer> map=new HashMap<>();
-        if(s.length()!=t.length())return false;
-        for(int i=0;i<s.length();i++){
-            map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+        if(s.length()!=t.length()){
+            return false;
         }
-        for(int i=0;i<t.length();i++){
-            char a=t.charAt(i);
-            if(!map.containsKey(a)){
-                return false;
-            }
-            map.put(a,map.get(a)-1);
-
-            if(map.get(a)<0){
+        int count[]=new int[26];
+        for(int i=0;i<s.length();i++){
+            count[s.charAt(i)-'a']++;
+            count[t.charAt(i)-'a']--;
+        }
+        for(int i=0;i<count.length;i++){
+            if(count[i]!=0){
                 return false;
             }
         }return true;
