@@ -10,8 +10,7 @@
  */
 class Solution {
     public ListNode sortList(ListNode head) {
-        if(head==null || head.next==null)
-        return head;
+        if(head==null || head.next==null)return head;
         ListNode slow=head;
         ListNode fast=head.next;
         while(fast!=null && fast.next!=null){
@@ -20,24 +19,27 @@ class Solution {
         }
         ListNode right=slow.next;
         slow.next=null;
+         
 
-        ListNode left=sortList(head);
-        right=sortList(right);
-        return Merge(left,right);
+         right=sortList(right);
+         ListNode left=sortList(head);
 
+
+         return merge(left,right);
     }
-    private ListNode Merge(ListNode left,ListNode right){
+    private ListNode merge(ListNode left,ListNode right){
         ListNode Dummy=new ListNode(0);
         ListNode curr=Dummy;
         while(left!=null && right!=null){
-            if(left.val>=right.val){
-                curr.next=right;
-                right=right.next;
-            }else{
-                curr.next=left;
-                left=left.next;
-            }
+        if(left.val<=right.val){
+            curr.next=left;
+            left=left.next;
             curr=curr.next;
+        }else{
+            curr.next=right;
+            right=right.next;
+            curr=curr.next;
+        }
         }
         if(left!=null){
             curr.next=left;
@@ -46,5 +48,6 @@ class Solution {
             curr.next=right;
         }
         return Dummy.next;
+
     }
 }
