@@ -10,17 +10,17 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        Stack<Integer> st=new Stack<>();
+        List<Integer> list=new ArrayList<>();
         ListNode curr=head;
         while(curr!=null){
-            st.push(curr.val);
+            list.add(curr.val);
             curr=curr.next;
         }
         curr=head;
-        while(curr!=null){
-            int top=st.pop();
-            curr.val=top;
+        for(int i=list.size()-1;i>=0;i--){
+            curr.val=list.get(i);
             curr=curr.next;
-        }return head;
+        }
+        return head;
     }
 }
