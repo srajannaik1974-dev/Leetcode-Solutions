@@ -7,7 +7,7 @@ class Solution {
             max=Math.max(num,max);
             set.add(num);
         }
-        for(int i=1;i<=Integer.MAX_VALUE;i++){
+        for(int i=1;i<=101;i++){
             int div=k*i;
             if(!set.contains(div)){
                 return div;
