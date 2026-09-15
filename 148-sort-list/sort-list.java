@@ -19,35 +19,32 @@ class Solution {
         }
         ListNode right=slow.next;
         slow.next=null;
-         
+        
+        right=sortList(right);
+        ListNode left=sortList(head);
 
-         right=sortList(right);
-         ListNode left=sortList(head);
-
-
-         return merge(left,right);
+        return merge(left,right);
     }
     private ListNode merge(ListNode left,ListNode right){
-        ListNode Dummy=new ListNode(0);
-        ListNode curr=Dummy;
+        ListNode dummy=new ListNode(0);
+        ListNode curr=dummy;
         while(left!=null && right!=null){
-        if(left.val<=right.val){
-            curr.next=left;
-            left=left.next;
+            if(left.val<=right.val){
+                curr.next=left;
+                
+                left=left.next;
+            }else{
+                curr.next=right;
+                
+                right=right.next;
+            }
             curr=curr.next;
-        }else{
-            curr.next=right;
-            right=right.next;
-            curr=curr.next;
-        }
         }
         if(left!=null){
             curr.next=left;
         }
         if(right!=null){
             curr.next=right;
-        }
-        return Dummy.next;
-
+        }return dummy.next;
     }
 }
