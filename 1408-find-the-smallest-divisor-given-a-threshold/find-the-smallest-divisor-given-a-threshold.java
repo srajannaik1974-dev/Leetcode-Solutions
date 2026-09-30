@@ -12,7 +12,7 @@ class Solution {
             int mid=low+(high-low)/2;
             sum=0;
             for(int i=0;i<n;i++){
-                int var=(int)Math.ceil((double)nums[i]/mid);
+                int var=(nums[i] + mid - 1) / mid;
                 sum=sum+var;
             }
             if(sum<=threshold){
