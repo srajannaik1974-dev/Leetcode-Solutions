@@ -7,12 +7,15 @@ class Solution {
         Arrays.sort(arr);
         for(int i=1;i<n;i++){
             diff=arr[i]-arr[i-1];
-            min=Math.min(diff,min);
-        }
-        for(int i=1;i<n;i++){
-            if(arr[i]-arr[i-1]==min){
+           
+            if(diff<min){
+                min=diff;
+                ans.clear();
                 ans.add(Arrays.asList(arr[i-1],arr[i]));
+            }else if(diff==min){
+                 ans.add(Arrays.asList(arr[i-1],arr[i]));
             }
+       
         }return ans;
     }
 }
