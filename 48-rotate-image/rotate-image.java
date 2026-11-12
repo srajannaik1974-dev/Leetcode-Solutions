@@ -9,17 +9,19 @@ class Solution {
                 matrix[j][i]=temp;
             }
         }
-
+       
         for(int i=0;i<n;i++){
-            int left=0;
-            int right=m-1;
-            while(left<right){
-                int temp=matrix[i][left];
-                matrix[i][left]=matrix[i][right];
-                matrix[i][right]=temp;
-                left++;
-                right--;
-            }
+             int low=0;
+        int high=m-1;
+        while(low<=high){
+           
+            int temp=matrix[i][low];
+            matrix[i][low]=matrix[i][high];
+            matrix[i][high]=temp;
+            low++;
+            high--;
+            
+        }
         }
     }
 }
