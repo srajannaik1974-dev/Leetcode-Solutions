@@ -6,7 +6,8 @@ class Solution {
             if(nums[i]==nums[j]){
                 continue;
             }else{
-                nums[++j]=nums[i];
+                j++;
+                nums[j]=nums[i];
                 
             }
         }return j+1;
